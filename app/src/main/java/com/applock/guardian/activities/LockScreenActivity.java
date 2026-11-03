@@ -56,7 +56,6 @@ public class LockScreenActivity extends FragmentActivity {
     // Broadcast receiver to handle screen off while showing lock screen
     private BroadcastReceiver screenReceiver = new BroadcastReceiver() {
         @Override
-        public void onReceive(Context context, String action) { /* keep alive */ }
         public void onReceive(Context context, Intent intent) {
             // do nothing — we stay on top
         }
