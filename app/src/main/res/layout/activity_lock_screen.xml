@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lock_bg">
+
+    <!-- Blurred wallpaper background -->
+    <ImageView
+        android:id="@+id/iv_wallpaper"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/lock_bg_gradient" />
+
+    <!-- Dark overlay -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#99000000" />
+
+    <!-- Hidden camera (0x0 invisible - for face detection) -->
+    <TextureView
+        android:id="@+id/hidden_camera_view"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:visibility="invisible" />
+
+    <!-- Clock + Date block -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:layout_marginTop="120dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12:00"
+            android:textColor="#FFFFFF"
+            android:textSize="80sp"
+            android:fontFamily="sans-serif-light"
+            android:letterSpacing="-0.02" />
+
+        <TextView
+            android:id="@+id/tv_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tuesday, 3 November"
+            android:textColor="#CCFFFFFF"
+            android:textSize="18sp"
+            android:fontFamily="sans-serif"
+            android:layout_marginTop="4dp" />
+
+    </LinearLayout>
+
+    <!-- Bottom fingerprint area -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="80dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <!-- Hint text -->
+        <TextView
+            android:id="@+id/tv_swipe_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Touch sensor to unlock"
+            android:textColor="#99FFFFFF"
+            android:textSize="14sp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Fingerprint area — hidden to user but touchable -->
+        <!-- Positioned at bottom center (where in-display sensors usually are) -->
+        <FrameLayout
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_gravity="center">
+
+            <!-- Ripple animation circle (initially invisible) -->
+            <View
+                android:id="@+id/fingerprint_ripple"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ripple_circle"
+                android:visibility="invisible" />
+
+            <!-- The actual touch target (transparent, no icon visible) -->
+            <View
+                android:id="@+id/fingerprint_area"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"
+                android:background="@drawable/fingerprint_touch_bg"
+                android:clickable="true"
+                android:focusable="true" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

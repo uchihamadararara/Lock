@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EE0A0A0A">
+
+    <!-- Hidden face detect camera -->
+    <TextureView
+        android:id="@+id/hidden_camera_view"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:visibility="invisible" />
+
+    <!-- App info center -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="120dp">
+
+        <!-- App Icon -->
+        <ImageView
+            android:id="@+id/iv_app_icon"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:src="@drawable/ic_shield" />
+
+        <!-- Lock icon overlay -->
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_marginTop="-16dp"
+            android:layout_marginStart="46dp"
+            android:src="@drawable/ic_lock_filled"
+            android:background="@drawable/lock_badge_bg" />
+
+        <!-- App Name -->
+        <TextView
+            android:id="@+id/tv_app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="App Name"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            android:fontFamily="sans-serif-medium" />
+
+        <!-- Subtitle -->
+        <TextView
+            android:id="@+id/tv_lock_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:text="This app is protected"
+            android:textColor="#99FFFFFF"
+            android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <!-- Fingerprint area at bottom -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="70dp"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Touch sensor to unlock"
+            android:textColor="#99FFFFFF"
+            android:textSize="13sp"
+            android:layout_marginBottom="20dp" />
+
+        <FrameLayout
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_gravity="center">
+
+            <View
+                android:id="@+id/fingerprint_ripple"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center"
+                android:background="@drawable/ripple_circle"
+                android:visibility="invisible" />
+
+            <View
+                android:id="@+id/fingerprint_area"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_gravity="center"
+                android:background="@drawable/fingerprint_touch_bg"
+                android:clickable="true"
+                android:focusable="true" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</FrameLayout>

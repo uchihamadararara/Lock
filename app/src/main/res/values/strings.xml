@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">App Lock Guardian</string>
+    <string name="accessibility_description">Detects when apps are opened so App Lock Guardian can show the lock screen.</string>
+    <string name="device_admin_description">Prevents App Lock Guardian from being uninstalled without authentication.</string>
+</resources>
